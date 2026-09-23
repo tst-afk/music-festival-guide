@@ -1,0 +1,829 @@
+/* =========================================
+   RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   THEME VARIABLES - change the website color base on different topics
+========================================= */
+:root{
+    --primary-color:#146c43;
+    --primary-light:#e9f5ee;
+    --primary-hover:#0f5333;
+    --text-color:#333333;
+    --page-background:#ffffff;
+    --card-background:#fafafa;
+    --border-color:#dddddd;
+    --table-header:#f5f5f5;
+    --shadow-light:0 2px 6px rgba(0,0,0,0.04);
+    --shadow-hover:0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Supplements: Leafora Laboritries */
+body.theme-supplement{
+    --primary-color:#146c43;
+    --primary-light:#e9f5ee;
+    --primary-hover:#0f5333;
+}
+
+/* Food: Potato Foods International */
+body.theme-potato{
+    --primary-color:#b8862f;
+    --primary-light:#fbf4e6;
+    --primary-hover:#8e6921;
+}
+
+/* Earphones: SonicWave Technologies */
+body.theme-earphones{
+    --primary-color:#163ecb;
+    --primary-light:#eef2ff;
+    --primary-hover:#102c95;
+}
+
+/* Mouse: Precision Peripherals Ltd. */
+body.theme-mouse{
+    --primary-color:#6d28d9;
+    --primary-light:#f4efff;
+    --primary-hover:#5b21b6;
+}
+
+/* Water Bottle: AquaSteel Drinkware */
+body.theme-bottle{
+    --primary-color:#f57c1f;
+    --primary-light:#fff4e8;
+    --primary-hover:#cf6311;
+}
+
+body.theme-urban{
+    --primary-color:#2e7d32;
+    --primary-light:#edf7ee;
+    --primary-hover:#1b5e20;
+}
+
+body.theme-music{
+    --primary-color:#8e24aa;
+    --primary-light:#f5e9fa;
+    --primary-hover:#6a1b86;
+}
+
+
+/* =========================================
+   GLOBAL TYPOGRAPHY
+========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: #f9fafb;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--page-background);
+}
+
+h1{
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+h2{
+    color: var(--primary-color);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+h3{
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+h4{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p{
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+ul {
+    margin-left: 30px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   LAYOUT
+========================================= */
+main {
+    padding: 60px;
+}
+
+section {
+    margin-bottom: 80px;
+}
+
+
+/* =========================================
+   REUSABLE COMPONENTS
+========================================= */
+.info-card{
+    background:white;
+    border-left:5px solid var(--primary-color);
+    border-radius:12px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    transition:0.25s ease;
+}
+.info-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.c2pa-badge{
+    display:inline-block;
+    padding:4px 10px;
+    margin-left:10px;
+    font-size:12px;
+    font-weight:600;
+    color:var(--primary-color);
+    background:var(--primary-light);
+    border:1px solid var(--primary-color);
+    border-radius:20px;
+}
+
+
+/* =========================================
+   ADVANCED LAYOUT COMPONENTS: for Test 4
+========================================= */
+.highlight-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.feature-highlight{
+    background:var(--card-background);
+    border-left:5px solid var(--primary-color);
+    border-radius:10px;
+    padding:20px;
+}
+.image-gallery{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+.spec-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+/* =========================================
+   STANDARD IMAGE SIZES
+========================================= */
+/* Company Logo */
+.company-logo{
+    width:75px;
+    height:75px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+/* Homepage Logo */
+.company-logo-large{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+}
+
+/* Product Images */
+.product-image-large{
+    width:320px;
+    height:auto;
+    border-radius:10px;
+    display:block;
+}
+.product-image-medium{
+    width:220px;
+    height:auto;
+    border-radius:10px;
+    display:block;
+}
+.product-image-small{
+    width:160px;
+    height:auto;
+    border-radius:10px;
+    display:block;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    box-shadow:0 3px 12px rgba(0,0,0,0.06);
+}
+
+.company-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 40px;
+}
+
+.company-name {
+    display: flex;
+    align-items: center;
+    font-size: 44px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1;
+}
+
+
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+
+/* =========================================
+   NAVIGATION BAR
+========================================= */
+.horizontal-nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+   /* min-height: 70px;*/
+    background-color: white;
+    border-top: 1px solid #bebabae1;
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.horizontal-nav a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 20px 15px;
+    transition: 0.2s ease;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+}
+
+/* Hover Effect */
+.horizontal-nav a:hover {
+    background-color: var(--primary-light);
+    border-bottom: 6px solid var(--primary-color);
+    color: var(--primary-hover);
+}
+
+/* Current Page */
+.horizontal-nav a.active {
+    background-color: var(--primary-light);
+    border-bottom: 6px solid var(--primary-color);
+}
+
+.page-layout{
+    display:flex;
+    min-height:100vh;
+}
+main{
+    flex:1;
+    padding:60px;
+    max-width:1400px;
+    margin:auto;
+}
+.sidebar{
+    width:320px;
+    min-height:100vh;
+    background:white;
+    border-right:1px solid var(--border-color);
+    padding:25px;
+}
+.company-brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    padding:15px;
+    margin-bottom:30px;
+}
+.company-name{
+    font-size:38px;
+    line-height:1.1;
+}
+.vertical-nav{
+    display:flex;
+    flex-direction:column;
+    margin-top:30px;
+}
+.vertical-nav a{
+    text-decoration:none;
+    color:var(--primary-color);
+    font-size:16px;
+    font-weight:600;
+    padding:16px 20px;
+    border-left:5px solid transparent;
+    transition:0.2s ease;
+}
+.vertical-nav a:hover{
+    background-color:var(--primary-light);
+    border-left:5px solid var(--primary-color);
+}
+.vertical-nav a.active{
+    background-color:var(--primary-light);
+    border-left:5px solid var(--primary-color);
+}
+
+
+/* =========================================
+   TABLES
+   (Technical Specifications Page)
+========================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table th,
+table td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+}
+table th {
+    background-color:var(--table-header);
+    color:var(--primary-color);
+}
+table{
+    overflow:hidden;
+    border-radius:10px;
+}
+table tr:nth-child(even){
+    background:#fafafa;
+}
+table tr:hover{
+    background:var(--primary-light);
+}
+
+.summary-table{
+    width:100%;
+    border-collapse:collapse;
+}
+.summary-table td{
+    padding:12px;
+    border-bottom:1px solid #eeeeee;
+}
+.summary-table td:first-child{
+    width:220px;
+    font-weight:bold;
+    color:var(--primary-color);
+}
+
+.report-table td:last-child{
+    text-transform: uppercase;
+    width:120px;
+    text-align:center;
+    font-weight:bold;
+    color:var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+
+/* =========================================
+   INDEX PAGE
+========================================= */
+/*Company logo*/
+.company-logo-center{
+    text-align:center;
+    margin-bottom:30px;
+}
+.company-overview-top{
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
+.company-logo-side{
+    flex-shrink:0;
+}
+.company-logo-side img{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+}
+
+/* Featured Product */
+.featured-content{
+    display:flex;
+    align-items:center;
+    gap:50px;
+}
+.featured-image{
+    flex-shrink:0;
+}
+.featured-image img{
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+.featured-text{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.product-description{
+    font-size:17px;
+    color:#555;
+    margin-bottom:15px;
+}
+.featured-text ul{
+    margin-left:25px;
+}
+.featured-text li{
+    margin-bottom:8px;
+}
+
+/*News*/
+.news-tag{
+    display:inline-block;
+    background: var(--primary-color);
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+    padding:6px 12px;
+    border-radius:5px;
+    margin-bottom:15px;
+}
+
+/* AquaSteel unsigned homepage only */
+.bottle-home .featured-content{
+    display:flex;
+    flex-direction:row-reverse;
+    align-items:center;
+    gap:50px;
+}
+.bottle-home .featured-image{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.bottle-home .featured-image img{
+    width:550px;
+    height:auto;
+}
+
+
+/* =========================================
+   ABOUT PAGE
+========================================= */
+.about-section{
+    margin-bottom:30px;
+}
+.about-top{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    margin-bottom:60px;
+}
+.about-image{
+    flex-shrink:0;
+}
+.about-description{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.about-description h2{
+    margin-top:0;
+}
+
+.bottle-about-image img{
+    width:550px;
+    height:auto;
+}
+
+
+/* =========================================
+   SPECIFICATION PAGE HEADER
+========================================= */
+.spec-summary{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    padding:30px;
+    background:var(--card-background);
+    border-radius:10px;
+}
+.spec-section-title{
+    margin-bottom:25px;
+    color:var(--primary-color);
+    border-bottom:2px solid var(--primary-light);
+    padding-bottom:10px;
+}
+
+/* Product image */
+.spec-image{
+    flex:0 0 180px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.spec-image img{
+    border:1px solid var(--border-color);
+}
+
+.bottle-spec-image{
+    flex:0 0 550px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+.bottle-spec-image img{
+    width:550px;
+    max-width:none;
+    height:auto;
+}
+
+/* Summary table */
+.spec-info{
+    flex:1;
+}
+
+
+/* Quality control reports */
+.qc-container{
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+}
+.qc-table{
+    flex:1;
+}
+
+
+/* =========================================
+   FEATURES PAGE
+========================================= */
+/* Feature summary */
+.feature-summary{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    margin-bottom:60px;
+}
+.feature-image img{
+    border:1px solid var(--border-color);
+}
+.feature-intro{
+    flex:1;
+}
+
+.bottle-feature-image{
+    flex:0 0 350px;
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+.bottle-feature-image img{
+    width:350px !important;
+    max-width:350px !important;
+    height:auto;
+
+    border:1px solid var(--border-color);
+    border-radius:10px;
+}
+
+
+/* =========================================
+   FAQ PAGE
+========================================= */
+.faq-intro{
+    max-width:1000px;
+    margin:0 auto 40px auto;
+    text-align:justify;
+    text-justify:inter-word;
+    color:#666666;
+    line-height:1.8;
+}
+.faq-section{
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.faq-item{
+    background:white;
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+    border-left:4px solid var(--primary-color);
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.04);
+    transition:0.2s ease;
+}
+.faq-item:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Q / A Badges */
+.qa-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    min-width:30px;
+    border-radius:50%;
+    font-weight:bold;
+    color:white;
+    background: var(--primary-color);
+    margin-right:12px;
+}
+.answer-badge{
+    background:#6c757d;
+}
+.answer{
+    display:flex;
+    gap:12px;
+    line-height:1.9;
+    color:#444;
+}
+.question{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:18px;
+    font-weight:700;
+    color:var(--primary-color);
+    margin-bottom:15px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+footer{
+    margin-top:80px;
+    padding:40px;
+    text-align:center;
+    border-top:1px solid var(--border-color);
+    background:#fafafa;
+}
+footer p{
+    text-align:center;
+}
+.footer-copyright{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:15px;
+}
+.footer-logo{
+    width: 1em;
+    height:1em;
+    object-fit:contain;
+    display:block;
+}
+.footer-company{
+    max-width: 1000px;
+    margin: 20px auto;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.cc-wrapper{
+    position:relative;
+    display:inline-block;
+}
+.cc-popup{
+    position:absolute;
+    bottom:130%;
+    left:50%;
+    transform:translateX(-50%);
+    width:max-content;
+    max-width:90vw;
+    background:white;
+    border:1px solid #dcdcdc;
+    border-radius:8px;
+    padding:12px;
+    text-align:left;
+    white-space:nowrap;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    visibility:hidden;
+    opacity:0;
+    transition:0.2s ease;
+    z-index:999;
+}
+.cc-wrapper:hover .cc-popup{
+    visibility:visible;
+    opacity:1;
+}
+.cc-popup p{
+    margin:8px 0;
+}
+.cc-popup hr{
+    margin:10px 0;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+@media screen and (max-width:900px){
+    .company-name{
+        font-size:36px;
+    }
+    .featured-content{
+        flex-direction:column;
+        text-align:center;
+    }
+    .featured-text{
+        width:100%;
+    }
+    .featured-text ul{
+        text-align:left;
+    }
+        .about-top{
+        flex-direction:column;
+        align-items:center;
+    }
+    .about-description{
+        width:100%;
+    }
+    .spec-summary{
+    flex-direction:column;
+    }
+    .feature-summary{
+        flex-direction:column;
+    }
+    .qc-container{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:768px){
+    .horizontal-nav{
+        flex-wrap:wrap;
+    }
+    .horizontal-nav a{
+        padding:15px;
+    }
+    .company-name{
+        font-size:28px;
+    }
+    main{
+        padding:20px;
+    }
+    h1{
+        font-size:32px;
+    }
+    h2{
+        font-size:26px;
+    }
+    .company-header{
+        flex-wrap:wrap;
+        justify-content:center;
+        text-align:center;
+    }
+    .c2pa-badge{
+        margin-top:8px;
+    }
+}
