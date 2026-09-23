@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tst-afk.github.io/music-festival-guide/sitemap.xml
